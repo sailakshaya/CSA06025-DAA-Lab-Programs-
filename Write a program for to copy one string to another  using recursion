@@ -1,0 +1,11 @@
+def copy_string(src, dest='', index=0):
+    # Base case: if index is equal to length of src, return dest
+    if index == len(src):
+        return dest
+    # Recursive case: append the current character to dest and recurse with the next index
+    return copy_string(src, dest + src[index], index + 1)
+
+# Example usage
+source = "Hello, World!"
+destination = copy_string(source)
+print(destination)  # Output: Hello, World!
