@@ -1,0 +1,19 @@
+def findSubstringWords(words):
+    # Initialize a set to store the results and avoid duplicates
+    result_set = set()
+    
+    # Iterate over each word
+    for i in range(len(words)):
+        # Check each word against all other words
+        for j in range(len(words)):
+            if i != j:
+                # Check if words[i] is a substring of words[j]
+                if words[i] in words[j]:
+                    result_set.add(words[i])
+    
+    # Convert the result set to a list and return it
+    return list(result_set)
+
+# Example usage:
+words1 = ["mass", "as", "hero", "superhero"]
+print(findSubstringWords(words1))  # Output: ["as", "hero"] or ["hero", "as"]
