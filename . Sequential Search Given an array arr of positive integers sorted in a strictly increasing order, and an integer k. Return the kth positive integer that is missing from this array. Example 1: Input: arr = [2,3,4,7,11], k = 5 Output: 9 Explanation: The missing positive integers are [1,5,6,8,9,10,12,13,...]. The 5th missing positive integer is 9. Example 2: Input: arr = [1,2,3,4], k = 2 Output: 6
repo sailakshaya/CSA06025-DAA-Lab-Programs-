@@ -1,0 +1,30 @@
+def findKthMissing(arr, k):
+    # Initialize the current number and the missing count
+    current = 1
+    missing_count = 0
+    index = 0
+    n = len(arr)
+    
+    # Iterate until we find the k-th missing number
+    while missing_count < k:
+        if index < n and arr[index] == current:
+            # Number is present in the array, move to the next number
+            index += 1
+        else:
+            # Number is missing
+            missing_count += 1
+            if missing_count == k:
+                return current
+        # Move to the next number
+        current += 1
+    
+    return -1  # This line should not be reached if k is valid
+
+# Example usage:
+arr1 = [2, 3, 4, 7, 11]
+k1 = 5
+print(findKthMissing(arr1, k1))  # Output: 9
+
+arr2 = [1, 2, 3, 4]
+k2 = 2
+print(findKthMissing(arr2, k2))  # Output: 6
